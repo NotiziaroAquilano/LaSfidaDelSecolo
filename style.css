@@ -1,7 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0 10px; /* Aggiunto padding ai margini */
+    box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -20,6 +21,8 @@ h1, h2, h3 {
 
 img {
     vertical-align: middle;
+    max-width: 100%;
+    height: auto;
 }
 
 .text {
@@ -91,20 +94,41 @@ img {
 
 @media screen and (max-width: 600px) {
     .prev, .next, .text {font-size: 11px}
-}
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    #calendar table, #calendar th, #calendar td {
+        display: block;
+        width: 100%;
+        border-collapse: collapse;
+        word-wrap: break-word;
+    }
 
-table, th, td {
-    border: 1px solid black;
-}
+    #calendar th, #calendar td {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        text-align: left;
+        display: block;
+    }
 
-th, td {
-    padding: 10px;
-    text-align: left;
+    #calendar th:nth-child(1),
+    #calendar td:nth-child(1) {
+        width: auto; /* Data */
+    }
+
+    #calendar th:nth-child(2),
+    #calendar td:nth-child(2) {
+        width: auto; /* Evento */
+    }
+
+    #calendar th:nth-child(3),
+    #calendar td:nth-child(3) {
+        width: auto; /* Descrizione */
+    }
+
+    #calendar th:nth-child(4),
+    #calendar td:nth-child(4) {
+        width: auto; /* Immagine */
+    }
 }
 
 .logo {
@@ -127,4 +151,14 @@ th, td {
 
 iframe {
     width: 100%;
+    height: 166px;
+}
+
+@media screen and (max-width: 600px) {
+    #calendar th:nth-child(1),
+    #calendar th:nth-child(2),
+    #calendar th:nth-child(3),
+    #calendar th:nth-child(4) {
+        display: none;
+    }
 }
