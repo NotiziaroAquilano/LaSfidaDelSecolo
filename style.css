@@ -94,41 +94,41 @@ img {
 
 @media screen and (max-width: 600px) {
     .prev, .next, .text {font-size: 11px}
+}
 
-    #calendar table, #calendar th, #calendar td {
-        display: block;
-        width: 100%;
-        border-collapse: collapse;
-        word-wrap: break-word;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-    #calendar th, #calendar td {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 10px;
-        text-align: left;
-        display: block;
-    }
+table, th, td {
+    border: 1px solid black;
+}
 
-    #calendar th:nth-child(1),
-    #calendar td:nth-child(1) {
-        width: auto; /* Data */
-    }
+th, td {
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+}
 
-    #calendar th:nth-child(2),
-    #calendar td:nth-child(2) {
-        width: auto; /* Evento */
-    }
+th:nth-child(1),
+td:nth-child(1) {
+    width: 15%; /* Data */
+}
 
-    #calendar th:nth-child(3),
-    #calendar td:nth-child(3) {
-        width: auto; /* Descrizione */
-    }
+th:nth-child(2),
+td:nth-child(2) {
+    width: 20%; /* Evento */
+}
 
-    #calendar th:nth-child(4),
-    #calendar td:nth-child(4) {
-        width: auto; /* Immagine */
-    }
+th:nth-child(3),
+td:nth-child(3) {
+    width: 45%; /* Descrizione */
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    width: 20%; /* Immagine */
 }
 
 .logo {
@@ -155,10 +155,40 @@ iframe {
 }
 
 @media screen and (max-width: 600px) {
-    #calendar th:nth-child(1),
-    #calendar th:nth-child(2),
-    #calendar th:nth-child(3),
-    #calendar th:nth-child(4) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th, td {
+        /* Rimuovi il padding */
+        padding: 0;
+    }
+
+    th:nth-child(1),
+    td:nth-child(1),
+    th:nth-child(2),
+    td:nth-child(2),
+    th:nth-child(3),
+    td:nth-child(3),
+    th:nth-child(4),
+    td:nth-child(4) {
+        /* Imposta larghezza al 100% per occupare l'intero spazio */
+        width: 100%;
+    }
+
+
+}
+@media screen and (max-width: 600px) {
+    table, th, td {
+        border: none; /* Rimuovi i bordi */
+    }
+
+    th, td {
+        border-bottom: 1px solid black; /* Aggiungi solo il bordo inferiore per separare le righe */
+    }
+    #calendar th {
         display: none;
     }
 }
+
+
